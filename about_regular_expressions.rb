@@ -94,23 +94,13 @@ class AboutRegularExpressions < EdgeCase::Koan
     assert_equal nil, "start end"[/\Aend/]
   end
 
-  def test_carat_also_anchors_to_the_start_of_the_string
-    assert_equal "start", "start end"[/^start/]
-    assert_equal nil, "start end"[/^end/]
-  end
-
   def test_slash_z_anchors_to_the_end_of_the_string
     assert_equal "end", "start end"[/end\z/]
     assert_equal nil, "start end"[/start\z/]
   end
 
-  def test_dollar_also_anchors_to_the_end_of_the_string
-    assert_equal "end", "start end"[/end\z/]
-    assert_equal nil, "start end"[/start\z/]
-  end
-
   def test_caret_anchors_to_the_start_of_lines
-    assert_equal __, "num 42\n2 lines"[/^\d+/]
+    assert_equal "2", "num 42\n2 lines"[/^\d+/]
   end
 
   def test_dollar_sign_anchors_to_the_end_of_lines
