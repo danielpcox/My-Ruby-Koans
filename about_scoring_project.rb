@@ -37,7 +37,6 @@ def score(dice)
     end
 
     score += 1000 if counts[1] >= 3
-    ind = 1 
     score += (2..6).map{|i| counts[i]>=3 ? i*100 : 0}.inject(:+) || 0
 
     score += (counts[1] - 3) * 100 if counts[1]>3
